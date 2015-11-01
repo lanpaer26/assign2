@@ -55,13 +55,13 @@ void draw() {
     if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
     if(mousePressed){
     gamestate=game_run;
-  
+   a=36;
     }
     }
     image(start2,0,0);
     break;
     case game_run:
-      a=36;
+     
     if(upPressed){
       l-=speed;
     }
@@ -158,6 +158,7 @@ x=floor(random(0,599));
     }
      if(mousePressed){
     gamestate=game_run;
+     a=36;
     }
      image(end2,0,0);
       break;
