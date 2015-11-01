@@ -35,22 +35,22 @@ void draw() {
   
 
   switch (gamestate){
-    case game_start1:
-    if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
-     gamestate=game_start2;
-    }
-    else{
-     gamestate=game_start1; 
-    }
-    image(start1,0,0);
-    
-    break;
     case game_start2:
     if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
-     gamestate=game_start2;
+     gamestate=game_start1;
     }
     else{
-     gamestate=game_start1; 
+     gamestate=game_start2; 
+    }
+    image(start2,0,0);
+    
+    break;
+    case game_start1:
+    if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
+     gamestate=game_start1;
+    }
+    else{
+     gamestate=game_start2; 
     }
     if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
     if(mousePressed){
@@ -58,7 +58,7 @@ void draw() {
    a=36;
     }
     }
-    image(start2,0,0);
+    image(start1,0,0);
     break;
     case game_run:
      
@@ -139,28 +139,28 @@ x=floor(random(0,599));
 
     image(hp,0,0);
       break;
-      case game_end1:
-       if(mouseX<433&&mouseX>207&&mouseY<345&&mouseY>311){
-     gamestate=game_end2;
-    }
-    else{
-     gamestate=game_end1; 
-      
-    }
-     image(end1,0,0);
-      break;
       case game_end2:
        if(mouseX<433&&mouseX>207&&mouseY<345&&mouseY>311){
-     gamestate=game_end2;
+     gamestate=game_end1;
     }
     else{
-     gamestate=game_end1; 
+     gamestate=game_end2; 
+      
+    }
+     image(end2,0,0);
+      break;
+      case game_end1:
+       if(mouseX<433&&mouseX>207&&mouseY<345&&mouseY>311){
+     gamestate=game_end1;
+    }
+    else{
+     gamestate=game_end2; 
     }
      if(mousePressed){
     gamestate=game_run;
      a=36;
     }
-     image(end2,0,0);
+     image(end1,0,0);
       break;
     }
 
