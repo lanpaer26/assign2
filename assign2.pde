@@ -35,33 +35,33 @@ void draw() {
   
 
   switch (gamestate){
-    case game_start2:
-    if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
-     gamestate=game_start1;
-    }
-    else{
-     gamestate=game_start2; 
-    }
-    image(start2,0,0);
-    
-    break;
     case game_start1:
     if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
-     gamestate=game_start1;
+     gamestate=game_start2;
     }
     else{
-     gamestate=game_start2; 
+     gamestate=game_start1; 
+    }
+    image(start1,0,0);
+    
+    break;
+    case game_start2:
+    if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
+     gamestate=game_start2;
+    }
+    else{
+     gamestate=game_start1; 
     }
     if(mouseX<455&&mouseX>205&&mouseY<416&&mouseY>375){
     if(mousePressed){
     gamestate=game_run;
-    a=36;
-    println("HP:"+20);
+  
     }
     }
-    image(start1,0,0);
+    image(start2,0,0);
     break;
     case game_run:
+      a=36;
     if(upPressed){
       l-=speed;
     }
@@ -91,11 +91,9 @@ void draw() {
       a-=40; 
       z=0;
       b=floor(random(0,419));
-      println("HP:"+(a+4)/2);
       if(a<=0){
         a=0;
     gamestate=game_end1;
-    println("Game Over");
     }      
     }
    
@@ -103,16 +101,16 @@ void draw() {
 a+=20;
 x=floor(random(0,599));
   y=floor(random(0,439));
-   println("HP:"+(a+4)/2);
  }
  
  
-b=l;
+ if(b>l){b--;}
+    if(b<l){b++;}
+
   
   
  if(a>=196){
  a=196;
- println("HP:"+100);
  }
  
     z=z+2;
@@ -141,27 +139,27 @@ b=l;
 
     image(hp,0,0);
       break;
-      case game_end2:
-       if(mouseX<433&&mouseX>207&&mouseY<345&&mouseY>311){
-     gamestate=game_end1;
-    }
-    else{
-     gamestate=game_end2; 
-      
-    }
-     image(end2,0,0);
-      break;
       case game_end1:
        if(mouseX<433&&mouseX>207&&mouseY<345&&mouseY>311){
-     gamestate=game_end1;
+     gamestate=game_end2;
     }
     else{
-     gamestate=game_end2; 
-    }
-     if(mousePressed){
-    gamestate=game_start1;
+     gamestate=game_end1; 
+      
     }
      image(end1,0,0);
+      break;
+      case game_end2:
+       if(mouseX<433&&mouseX>207&&mouseY<345&&mouseY>311){
+     gamestate=game_end2;
+    }
+    else{
+     gamestate=game_end1; 
+    }
+     if(mousePressed){
+    gamestate=game_run;
+    }
+     image(end2,0,0);
       break;
     }
 
