@@ -104,9 +104,7 @@ x=floor(random(0,599));
  }
  
  
- if(b>l){b--;}
-    if(b<l){b++;}
-
+l=b;
   
   
  if(a>=196){
