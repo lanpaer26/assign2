@@ -1,3 +1,5 @@
+
+
 /* please implement your assign1 code in this file. */
 final int game_start1=1,game_start2=2,game_run=3,game_end1=4,game_end2=5;
 final int HP=36;
@@ -104,7 +106,9 @@ x=floor(random(0,599));
  }
  
  
-b=l;
+ if(b>l){b--;}
+    if(b<l){b++;}
+
   
   
  if(a>=196){
@@ -157,7 +161,10 @@ b=l;
      if(mousePressed){
     gamestate=game_run;
      a=36;
+     k=width*5/6;
+  l=height*1/2;
     }
+       image(ship,k,l);
      image(end1,0,0);
       break;
     }
